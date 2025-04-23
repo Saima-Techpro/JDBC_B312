@@ -56,3 +56,71 @@ CREATE TABLE countries(
     INSERT INTO countries VALUES(48, 1, 'US', 'United States');
     INSERT INTO countries VALUES(49, 58, 'VE', 'Venezuela');
     INSERT INTO countries VALUES(50, 263, 'ZW', 'Zimbabwe');
+
+
+ ========================================================
+
+    CREATE TABLE developers (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(50),
+        salary REAL,
+        prog_lang VARCHAR(20)
+      );
+
+	  INSERT INTO developers (name, salary, prog_lang) VALUES
+      ('John Smith', 5000.00, 'Java'),
+      ('Alice Johnson', 6000.00, 'Python'),
+      ('Mike Wilson', 4500.00, 'JavaScript'),
+      ('Emily Thompson', 5500.00, 'C#'),
+      ('David Lee', 4800.00, 'Ruby'),
+      ('Sarah Davis', 5200.00, 'Java'),
+      ('Michael Brown', 5900.00, 'Python'),
+      ('Jennifer Miller', 4700.00, 'JavaScript'),
+      ('Christopher Anderson', 5100.00, 'C#'),
+      ('Jessica Martinez', 5600.00, 'Ruby'),
+      ('Matthew Taylor', 5200.00, 'Java'),
+      ('Amanda Garcia', 6000.00, 'Python'),
+      ('Robert Clark', 4500.00, 'JavaScript'),
+      ('Laura Adams', 4800.00, 'C#'),
+      ('Daniel Wilson', 5400.00, 'Ruby'),
+      ('Lauren Allen', 4900.00, 'Java'),
+      ('Andrew Wright', 5700.00, 'Python'),
+      ('Samantha Hill', 4600.00, 'JavaScript'),
+      ('William Turner', 5300.00, 'C#'),
+      ('Olivia Cook', 5500.00, 'Ruby');
+
+
+ ========================================================
+ CREATE TABLE students(
+             id int,
+             name varchar(50),
+             city varchar(50),
+             grade int,
+             department varchar(20)
+      );
+
+      INSERT INTO students VALUES(100, 'Ahmet Umit', 'İstanbul', 546, 'Comp.Eng.');
+      INSERT INTO students VALUES(101, 'R.Nuri Tekin', 'Antalya', 486, 'Management');
+      INSERT INTO students VALUES(102, 'S.Faik Faruk', 'Bursa', 554, 'Comp.Eng.');
+      INSERT INTO students VALUES(103, 'Yasar Kemal', 'İstanbul', 501, 'Mathematics');
+      INSERT INTO students VALUES(104, 'Halide E. Adivar', 'İzmir', 473, 'Psychology');
+      INSERT INTO students VALUES(105, 'Nazan Bekir', 'İzmir', 432, 'Literature');
+      INSERT INTO students VALUES(106, 'Peyami Safa', 'Antalya', 535, 'Comp.Eng.');
+      INSERT INTO students VALUES(107, 'Sabahattin Ali', 'İstanbul', 492, 'Mathematics');
+      INSERT INTO students VALUES(108, 'John Smith', 'Texas', 432, 'Comp.Eng.');
+      INSERT INTO students VALUES(109, 'Jane Smith', 'Washington DC', 340, 'Literature');
+      INSERT INTO students VALUES(110, 'Asye Ahmet', 'Istanbul', 410, 'Psychology');
+
+===========================================================
+CREATE TABLE departments(
+                dept_id int,
+                department varchar(20),
+                pass_grade int,
+                campus varchar(20)
+              );
+
+              INSERT INTO departments VALUES(5001, 'Comp.Eng.', 521,'North');
+              INSERT INTO departments VALUES(5002, 'Mathematics', 455,'South');
+              INSERT INTO departments VALUES(5003, 'Psychology', 440,'Hisar');
+              INSERT INTO departments VALUES(5004, 'Management', 465,'Hisar');
+              INSERT INTO departments VALUES(5005, 'Literature', 420,'North');
