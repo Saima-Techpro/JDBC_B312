@@ -20,6 +20,9 @@
       <assistant-state connection-id="ca1bb8d1-f3e2-4085-95b4-96c3f61cc6d4" default-profile-name="" selected-profile-name="" selected-model-name="" assistant-type="GENERIC" selected-action="SHOW_SQL" availability="UNAVAILABLE" acknowledgement="NONE">
         <messages />
       </assistant-state>
+      <assistant-state connection-id="6a471306-59c5-477d-82a7-b7866c6a80c0" default-profile-name="" selected-profile-name="" selected-model-name="" assistant-type="GENERIC" selected-action="SHOW_SQL" availability="UNAVAILABLE" acknowledgement="NONE">
+        <messages />
+      </assistant-state>
     </assistants>
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
@@ -29,14 +32,42 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="68903b37-9910-4e05-89ba-2caf88c8511d">
-      <console name="jdbc_b312" type="STANDARD" schema="jdbc_b312" session="Main"><![CDATA[SELECT * FROM countries]]></console>
-    </connection>
-    <connection id="40bec169-d73e-4134-b54a-31d720ea1449">
-      <console name="jdbc_b312" type="STANDARD" schema="jdbc_b312" session="Main"><![CDATA[SELECT * FROM countries]]></console>
-    </connection>
-    <connection id="ca1bb8d1-f3e2-4085-95b4-96c3f61cc6d4">
-      <console name="Connection" type="STANDARD" schema="jdbc_b312" session="Main"><![CDATA[SELECT * FROM countries]]></console>
+    <connection id="6a471306-59c5-477d-82a7-b7866c6a80c0">
+      <console name="jdbc_b312" type="STANDARD" schema="jdbc_b312" session="Main"><![CDATA[SELECT * FROM employees; 
+
+-- PostgreSQL assumes the table is in the default schema defined by your session's search_path. 
+-- If public is not in that path, it won’t find employees.
+
+-- Option 1: Fully qualify the table name
+-- Use the schema name explicitly:
+SELECT * FROM public.employees;
+
+-- Option 2: Check or set the search_path
+-- If you want to avoid using public. every time, set your search path in the session:
+
+
+SET search_path TO public;
+
+SELECT * FROM students; 
+
+SELECT * FROM developers;
+
+
+CREATE TABLE accounts( 
+    account_num int UNIQUE, 
+    name VARCHAR(50), 
+    amount real );
+
+INSERT INTO accounts VALUES(1234, 'Fred',9500.50);
+INSERT INTO accounts VALUES(5678, 'Barnie',5500.80);
+
+SELECT * FROM accounts;
+
+DROP TABLE accounts;
+
+
+
+SELECT phone_code FROM countries]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -46,12 +77,18 @@
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="68903b37-9910-4e05-89ba-2caf88c8511d" />
-    <connection id="40bec169-d73e-4134-b54a-31d720ea1449" />
-    <connection id="ca1bb8d1-f3e2-4085-95b4-96c3f61cc6d4" />
+    <connection id="6a471306-59c5-477d-82a7-b7866c6a80c0" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
+  </component>
+  <component name="DBNavigator.Project.MethodExecutionManager">
+    <method-browser />
+    <execution-history>
+      <group-entries value="true" />
+      <execution-inputs />
+    </execution-history>
+    <execution-variables-cache />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
@@ -59,108 +96,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="68903b37-9910-4e05-89ba-2caf88c8511d" active="true" signed="true">
-        <database>
-          <name value="jdbc_b312" />
-          <description value="" />
-          <database-type value="POSTGRES" />
-          <config-type value="BASIC" />
-          <database-version value="16.2" />
-          <driver-source value="BUNDLED" />
-          <driver-library value="" />
-          <driver value="" />
-          <url-type value="DATABASE" />
-          <host value="localhost" />
-          <port value="5433" />
-          <database value="jdbc_b312" />
-          <tns-folder value="" />
-          <tns-profile value="" />
-          <type value="USER_PASSWORD" />
-          <user value="b312_user" />
-          <token-type value="" />
-          <token-config-file value="" />
-          <token-profile value="" />
-          <session-user value="b312_user" />
-        </database>
-        <properties>
-          <auto-commit value="false" />
-        </properties>
-        <ssh-settings>
-          <active value="false" />
-          <proxy-host value="" />
-          <proxy-port value="22" />
-          <proxy-user value="" />
-          <auth-type value="PASSWORD" />
-          <key-file value="" />
-        </ssh-settings>
-        <ssl-settings>
-          <active value="false" />
-          <certificate-authority-file value="" />
-          <client-certificate-file value="" />
-          <client-key-file value="" />
-        </ssl-settings>
-        <details>
-          <charset value="UTF-8" />
-          <session-management value="true" />
-          <ddl-file-binding value="true" />
-          <database-logging value="true" />
-          <connect-automatically value="true" />
-          <restore-workspace value="true" />
-          <restore-workspace-deep value="false" />
-          <environment-type value="default" />
-          <connectivity-timeout value="30" />
-          <idle-time-to-disconnect value="30" />
-          <idle-time-to-disconnect-pool value="5" />
-          <credential-expiry-time value="10" />
-          <max-connection-pool-size value="7" />
-          <alternative-statement-delimiter value="" />
-        </details>
-        <debugger>
-          <compile-dependencies value="true" />
-          <tcp-driver-tunneling value="false" />
-          <tcp-host-address value="" />
-          <tcp-port-from value="4000" />
-          <tcp-port-to value="4999" />
-          <debugger-type value="ASK" />
-        </debugger>
-        <object-filters hide-empty-schemas="false" hide-pseudo-columns="false" hide-audit-columns="false">
-          <object-filters />
-          <object-type-filter use-master-settings="true">
-            <object-type name="SCHEMA" enabled="true" />
-            <object-type name="USER" enabled="true" />
-            <object-type name="ROLE" enabled="true" />
-            <object-type name="PRIVILEGE" enabled="true" />
-            <object-type name="CHARSET" enabled="true" />
-            <object-type name="TABLE" enabled="true" />
-            <object-type name="VIEW" enabled="true" />
-            <object-type name="MATERIALIZED_VIEW" enabled="true" />
-            <object-type name="NESTED_TABLE" enabled="true" />
-            <object-type name="COLUMN" enabled="true" />
-            <object-type name="INDEX" enabled="true" />
-            <object-type name="CONSTRAINT" enabled="true" />
-            <object-type name="DATASET_TRIGGER" enabled="true" />
-            <object-type name="DATABASE_TRIGGER" enabled="true" />
-            <object-type name="SYNONYM" enabled="true" />
-            <object-type name="SEQUENCE" enabled="true" />
-            <object-type name="PROCEDURE" enabled="true" />
-            <object-type name="FUNCTION" enabled="true" />
-            <object-type name="PACKAGE" enabled="true" />
-            <object-type name="TYPE" enabled="true" />
-            <object-type name="TYPE_ATTRIBUTE" enabled="true" />
-            <object-type name="ARGUMENT" enabled="true" />
-            <object-type name="JAVA_CLASS" enabled="true" />
-            <object-type name="JAVA_INNER_CLASS" enabled="true" />
-            <object-type name="JAVA_FIELD" enabled="true" />
-            <object-type name="JAVA_METHOD" enabled="true" />
-            <object-type name="DIMENSION" enabled="true" />
-            <object-type name="CLUSTER" enabled="true" />
-            <object-type name="DBLINK" enabled="true" />
-            <object-type name="CREDENTIAL" enabled="true" />
-            <object-type name="AI_PROFILE" enabled="true" />
-          </object-type-filter>
-        </object-filters>
-      </connection>
-      <connection id="40bec169-d73e-4134-b54a-31d720ea1449" active="true" signed="true">
+      <connection id="6a471306-59c5-477d-82a7-b7866c6a80c0" active="true" signed="true">
         <database>
           <name value="jdbc_b312" />
           <description value="" />
@@ -185,107 +121,6 @@
         </database>
         <properties>
           <auto-commit value="true" />
-        </properties>
-        <ssh-settings>
-          <active value="false" />
-          <proxy-host value="" />
-          <proxy-port value="22" />
-          <proxy-user value="" />
-          <auth-type value="PASSWORD" />
-          <key-file value="" />
-        </ssh-settings>
-        <ssl-settings>
-          <active value="false" />
-          <certificate-authority-file value="" />
-          <client-certificate-file value="" />
-          <client-key-file value="" />
-        </ssl-settings>
-        <details>
-          <charset value="UTF-8" />
-          <session-management value="true" />
-          <ddl-file-binding value="true" />
-          <database-logging value="true" />
-          <connect-automatically value="true" />
-          <restore-workspace value="true" />
-          <restore-workspace-deep value="false" />
-          <environment-type value="default" />
-          <connectivity-timeout value="30" />
-          <idle-time-to-disconnect value="30" />
-          <idle-time-to-disconnect-pool value="5" />
-          <credential-expiry-time value="10" />
-          <max-connection-pool-size value="7" />
-          <alternative-statement-delimiter value="" />
-        </details>
-        <debugger>
-          <compile-dependencies value="true" />
-          <tcp-driver-tunneling value="false" />
-          <tcp-host-address value="" />
-          <tcp-port-from value="4000" />
-          <tcp-port-to value="4999" />
-          <debugger-type value="ASK" />
-        </debugger>
-        <object-filters hide-empty-schemas="false" hide-pseudo-columns="false" hide-audit-columns="false">
-          <object-filters />
-          <object-type-filter use-master-settings="true">
-            <object-type name="SCHEMA" enabled="true" />
-            <object-type name="USER" enabled="true" />
-            <object-type name="ROLE" enabled="true" />
-            <object-type name="PRIVILEGE" enabled="true" />
-            <object-type name="CHARSET" enabled="true" />
-            <object-type name="TABLE" enabled="true" />
-            <object-type name="VIEW" enabled="true" />
-            <object-type name="MATERIALIZED_VIEW" enabled="true" />
-            <object-type name="NESTED_TABLE" enabled="true" />
-            <object-type name="COLUMN" enabled="true" />
-            <object-type name="INDEX" enabled="true" />
-            <object-type name="CONSTRAINT" enabled="true" />
-            <object-type name="DATASET_TRIGGER" enabled="true" />
-            <object-type name="DATABASE_TRIGGER" enabled="true" />
-            <object-type name="SYNONYM" enabled="true" />
-            <object-type name="SEQUENCE" enabled="true" />
-            <object-type name="PROCEDURE" enabled="true" />
-            <object-type name="FUNCTION" enabled="true" />
-            <object-type name="PACKAGE" enabled="true" />
-            <object-type name="TYPE" enabled="true" />
-            <object-type name="TYPE_ATTRIBUTE" enabled="true" />
-            <object-type name="ARGUMENT" enabled="true" />
-            <object-type name="JAVA_CLASS" enabled="true" />
-            <object-type name="JAVA_INNER_CLASS" enabled="true" />
-            <object-type name="JAVA_FIELD" enabled="true" />
-            <object-type name="JAVA_METHOD" enabled="true" />
-            <object-type name="DIMENSION" enabled="true" />
-            <object-type name="CLUSTER" enabled="true" />
-            <object-type name="DBLINK" enabled="true" />
-            <object-type name="CREDENTIAL" enabled="true" />
-            <object-type name="AI_PROFILE" enabled="true" />
-          </object-type-filter>
-        </object-filters>
-      </connection>
-      <connection id="ca1bb8d1-f3e2-4085-95b4-96c3f61cc6d4" active="true" signed="true">
-        <database>
-          <name value="Connection" />
-          <description value="" />
-          <database-type value="POSTGRES" />
-          <config-type value="BASIC" />
-          <database-version value="16.2" />
-          <driver-source value="BUNDLED" />
-          <driver-library value="" />
-          <driver value="" />
-          <url-type value="DATABASE" />
-          <host value="localhost" />
-          <port value="5433" />
-          <database value="jdbc_b312" />
-          <tns-folder value="" />
-          <tns-profile value="" />
-          <type value="USER_PASSWORD" />
-          <user value="b312_user" />
-          <token-type value="" />
-          <token-config-file value="" />
-          <token-profile value="" />
-          <session-user value="b312_user" />
-        </database>
-        <properties>
-          <auto-commit value="false" />
         </properties>
         <ssh-settings>
           <active value="false" />

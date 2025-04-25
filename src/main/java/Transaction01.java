@@ -11,7 +11,7 @@ public class Transaction01 {
             System.out.println("Not connected!");
         }
 
-        // con.setAutoCommit(true); This is the code that works at the background once connection with the DB is established
+        // connection.setAutoCommit(true); This is the code that works at the background once connection with the DB is established
         // It allows the queries (transactions) to be executed (committed/shipped) AUTOMATICALLY
 
 
