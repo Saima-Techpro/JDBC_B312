@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DBUtils {
+public class Medunna_DBUtils {
 
     // Create class variables. Their scope is wider
     public static Connection connection;
@@ -16,9 +16,9 @@ public class DBUtils {
 //    Step 2: Create connection with the database
 
     public static Connection connectToDataBase(){
-        String url = "jdbc:postgresql://localhost:5433/jdbc_b312";
-        String userName = "b312_user";
-        String password = "password";
+        String url = "jdbc:postgresql://medunna.com:5432/medunna_db_v2";
+        String userName = "select_user";
+        String password = "Medunna_pass_@6";
 
         try {
             connection = DriverManager.getConnection(url, userName, password);
@@ -54,6 +54,7 @@ public class DBUtils {
         return resultSet;
     }
 
+
     // Method to get the data from a given column and return as a list
 
     public static List<Object> getColumnData(String columnName , String tableName){
@@ -83,9 +84,6 @@ public class DBUtils {
         return list;
 
     }
-
-
-
 
 //    Step 5: Close the connection
 
